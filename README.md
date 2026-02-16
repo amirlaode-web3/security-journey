@@ -1,66 +1,24 @@
-## Foundry
+# security-journey
 
-**Foundry is a blazing fast, portable and modular toolkit for Ethereum application development written in Rust.**
+Roadmap 6 bulan untuk jadi smart contract security auditor.
 
-Foundry consists of:
+## Target 6 Bulan
+- Konsisten latihan audit + catatan temuan (write-up singkat)
+- Kuasai Foundry untuk testing, fuzzing, dan reproduksi bug
+- Biasakan workflow auditor: minimal PoC + rekomendasi fix
 
-- **Forge**: Ethereum testing framework (like Truffle, Hardhat and DappTools).
-- **Cast**: Swiss army knife for interacting with EVM smart contracts, sending transactions and getting chain data.
-- **Anvil**: Local Ethereum node, akin to Ganache, Hardhat Network.
-- **Chisel**: Fast, utilitarian, and verbose solidity REPL.
+## Stack
+- Solidity
+- Foundry
 
-## Documentation
+## Milestone
+- [x] Setup Foundry + struktur project rapi
+- [x] `forge test` berjalan tanpa error
+- [ ] GitHub Actions (forge test) jalan otomatis tiap push
+- [ ] 10 write-up temuan (CTF / audit practice)
 
-https://book.getfoundry.sh/
-
-## Usage
-
-### Build
-
-```shell
-$ forge build
-```
-
-### Test
-
-```shell
-$ forge test
-```
-
-### Format
-
-```shell
-$ forge fmt
-```
-
-### Gas Snapshots
-
-```shell
-$ forge snapshot
-```
-
-### Anvil
-
-```shell
-$ anvil
-```
-
-### Deploy
-
-```shell
-$ forge script script/Counter.s.sol:CounterScript --rpc-url <your_rpc_url> --private-key <your_private_key>
-```
-
-### Cast
-
-```shell
-$ cast <subcommand>
-```
-
-### Help
-
-```shell
-$ forge --help
-$ anvil --help
-$ cast --help
-```
+## Commands
+```bash
+forge build
+forge test -vv
+forge fmt
