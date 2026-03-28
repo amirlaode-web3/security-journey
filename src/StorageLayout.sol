@@ -25,4 +25,12 @@ contract StorageLayout {
         x: 0x11111111111111111111111111111111,
         y: 0x22222222222222222222222222222222
     });
+
+	// Slot 4: Slot utama Mapping. Isinya SELALU KOSONG (0x0).
+    mapping(uint256 => uint256) public saldo;
+
+    constructor() {
+        // Kita isi mapping-nya: Key 1 holds Value 999
+        saldo[1] = 999;
+    }
 }

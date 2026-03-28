@@ -32,4 +32,22 @@ contract StorageLayoutTest is Test {
         console.log("Isi Slot 3 (Struct Koordinat - x dan y):");
         console.logBytes32(slot3);
     }
+
+    function testInspectMapping() public {
+        // 1. Cek dulu Slot 4 (Rumah hantu)
+        bytes32 slot4 = vm.load(address(store), bytes32(uint256(4)));
+        console.log("Isi Slot Utama Mapping (Slot 4):");
+        console.logBytes32(slot4); // Ini pasti 0x0...
+
+        // 2. Hitung lokasi data sesungguhnya pake rumus keccak256
+        // Kita bungkus Key (1) dan Slot (4)
+        bytes32 lokasiData = keccak256(abi.encode(uint256(1), uint256(4)));
+        
+        // 3. Intip lokasi hasil hitungan tadi
+        bytes32 dataAsli = vm.load(address(store), lokasiData);
+        console.log("Lokasi hasil Hashing:");
+        console.logBytes32(lokasiData);
+        console.log("Data yang ditemukan di lokasi tersebut:");
+        console.logUint(uint256(dataAsli)); // Harus muncul 999
+    }
 }
