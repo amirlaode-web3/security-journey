@@ -26,5 +26,10 @@ contract StorageLayoutTest is Test {
         bytes32 slot2 = vm.load(address(store), bytes32(uint256(2)));
         console.log("Isi Slot 2 (d dan e):");
         console.logBytes32(slot2);
+
+        //UPDATE 
+        bytes32 slot3 = vm.load(address(store), bytes32(uint256(3)));
+        console.log("Isi Slot 3 (Struct Koordinat - x dan y):");
+        console.logBytes32(slot3);
     }
 }
